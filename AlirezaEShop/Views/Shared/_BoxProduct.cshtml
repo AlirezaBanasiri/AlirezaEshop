@@ -2,7 +2,8 @@
 
 <div class="col-3">
 	<div class="card">
-		<img src="/images/@(Model.ID+Model.PictureExtention)" alt="Alternate Text" height="200" width="20" class="card-img-top img-thumbnail" />
+		@* Img Size 182*150 *@
+		<img src="/images/@(Model.ID+Model.PictureExtention)" alt="Alternate Text" class="card-img-top img-thumbnail" height="150"/>
 		<div class="card-body">
 			<h5 class="card-title"></h5>
 			<a asp-action="Details"
