@@ -43,6 +43,7 @@ x64/
 *.vspscc
 *.vssscc
 .builds
+AlirezaEShop/wwwroot/Images/*
 
 # Visual C++ cache files
 ipch/
