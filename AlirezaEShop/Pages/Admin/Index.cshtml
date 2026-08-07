@@ -1,0 +1,40 @@
+﻿@page
+@model AlirezaEShop.Pages.Admin.IndexModel
+@{
+}
+
+<h1>لیست کالاها</h1>
+<hr />
+<p>
+	<a asp-page="add" class="myButton">افزودن کالا</a>
+</p>
+<div class="table-responsive">
+
+	<table class="table table-striped table-hover table-bordered">
+		<thead class="table-dark">
+			<tr>
+				<th>تصویر</th>
+				<th>نام</th>
+				<th>قیمت</th>
+				<th>دستورات</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var product in Model.Products)
+			{
+				<tr>
+					<td>
+						<img src="/images/@(product.ID + product.PictureExtention)" class="img-fluid"
+							 style="max-width: 120px; max-height: 120px; border: 1px solid gray; padding: 3px; object-fit: cover;" />
+					</td>
+					<td>@product.ID</td>
+					<td>@product.item.price</td>
+					<td>
+						<a asp-page="Edit" asp-route-id="@(product.ID)">ویرایش</a>
+						<a asp-page="Delete" asp-route-id="@(product.ID)">حذف</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
