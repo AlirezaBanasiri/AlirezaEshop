@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 #region ConnectionString
 builder.Services.AddDbContext<AlirezaEShopContext>(Options =>
 {
-    Options.UseSqlServer(@"Data Source=DESKTOP-DSQQ71B;Initial Catalog=AlirezaEShop;Integrated Security=True;TrustServerCertificate=True");
+    Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 #endregion
 
