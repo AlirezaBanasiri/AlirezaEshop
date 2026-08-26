@@ -3,6 +3,7 @@ using AlirezaEShop.Data.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,6 +50,21 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path.StartsWithSegments("/Admin"))
+    {
+        if (!context.User.Identity.IsAuthenticated)
+        {
+            context.Response.Redirect("Account/Login");
+        }
+        else if (!bool.Parse(context.User.FindFirstValue("isAdmin")))
+        {
+            context.Response.Redirect("Account/Login");
+        }
+    }
+    await next.Invoke();
+});
 
 app.MapRazorPages();
 app.MapControllerRoute(
