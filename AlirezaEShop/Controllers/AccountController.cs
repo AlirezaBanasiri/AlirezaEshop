@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using System.Security.Claims;
 
 namespace AlirezaEShop.Controllers
@@ -28,11 +29,6 @@ namespace AlirezaEShop.Controllers
             {
                 return View();
             }
-            if (_userRepository.IsExistUserByEmail(Register.Email))
-            {
-                ModelState.AddModelError("Email", "ایمیل وارد شده قبلا ثبت شده است");
-                return View();
-            }
 
             User user = new User()
             {
@@ -43,6 +39,15 @@ namespace AlirezaEShop.Controllers
             };
             _userRepository.AddUser(user);
             return View("Success", Register);
+        }
+
+        public IActionResult VerfyEmail(string email)
+        {
+            if (_userRepository.IsExistUserByEmail(email))
+            {
+                return Json($"ایمیل {email} تکراری میباشد");
+            }
+            return Json(true);
         }
         #endregion
 
