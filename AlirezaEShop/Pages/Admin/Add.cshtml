@@ -11,14 +11,14 @@
 			<label asp-for="Product.Name"></label>
 		</dd>
 		<dt>
-			<input asp-for="Product.Name" class="form-control"/>
+			<input asp-for="Product.Name" class="form-control" />
 			<span asp-validation-for="Product.Name"></span>
 		</dt>
 		<dd>
 			<label asp-for="Product.Description"></label>
 		</dd>
 		<dt>
-			<input asp-for="Product.Description" class="form-control"/>
+			<input asp-for="Product.Description" class="form-control" />
 			<span asp-validation-for="Product.Description"></span>
 		</dt>
 		<dd>
@@ -42,6 +42,18 @@
 			<input asp-for="Product.Picture" class="form-control" />
 			<span asp-validation-for="Product.Picture"></span>
 		</dt>
+		<dd>
+			گروه ها
+		</dd>
+		@foreach (var Item in Model.Product.Categories)
+		{
+			<dt>
+				<p>
+					<input type="checkbox" name="SelectedGroups" value="@Item.ID" />@Item.Name
+				</p>
+			</dt>
+		}
+		<dd></dd>
 		<dt>
 			<input type="submit" class="btn btn-success" value="ثبت" />
 		</dt>

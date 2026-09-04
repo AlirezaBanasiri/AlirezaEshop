@@ -1,7 +1,9 @@
-using AlirezaEShop.Data;
+﻿using AlirezaEShop.Data;
 using AlirezaEShop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Text.RegularExpressions;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AlirezaEShop.Pages.Admin
 {
@@ -15,16 +17,39 @@ namespace AlirezaEShop.Pages.Admin
 
         [BindProperty]
         public AddEditViewModel Product { get; set; }
+
+        [BindProperty]
+        public List<int> SelectedGroups { get; set; }
+
         public void OnGet()
         {
-
+            Product = new AddEditViewModel
+            {
+                Categories = getCategory()
+            };
         }
         public IActionResult OnPost()
         {
+            if (Product.Picture == null || Product.Picture.Length == 0)
+            {
+                ModelState.AddModelError("Product.Picture", "انتخاب تصویر الزامی است.");
+            }
             if (!ModelState.IsValid)
             {
+                //foreach (var i in ModelState)
+                //{
+                //    foreach (var error in i.Value.Errors)
+                //    {
+                //        Console.WriteLine($"{i.Key}: {error.ErrorMessage}");
+                //    }
+                //}
+                Product = new AddEditViewModel
+                {
+                    Categories = getCategory()
+                };
                 return Page();
             }
+           
             var item = new Item()
             {
                 price = Product.Price,
@@ -38,7 +63,9 @@ namespace AlirezaEShop.Pages.Admin
                 Name = Product.Name,
                 item = item,
                 Description = Product.Description,
-                PictureExtention = Path.GetExtension(Product.Picture.FileName)
+                PictureExtention = Product.Picture != null
+              ? Path.GetExtension(Product.Picture.FileName)
+                : null
             };
             _context.Add(pro);
             _context.SaveChanges();
@@ -54,8 +81,26 @@ namespace AlirezaEShop.Pages.Admin
                     Product.Picture.CopyTo(stream);
                 }
             }
+            //Alireza Fixed Image Error While Editing And Adding Groups t
+            foreach (int gr in SelectedGroups)
+            {
+                if (SelectedGroups.Any() && SelectedGroups.Count > 0)
+                {
+                    _context.CategoryToProducts.Add(new CategoryToProduct
+                    {
+                        CategoryID = gr,
+                        ProductID = pro.ID
+                    });
+                }
+                _context.SaveChanges();
+            }
 
             return RedirectToPage("Index");
+        }
+
+        public List<Category> getCategory()
+        {
+            return _context.categories.ToList();
         }
     }
 }
