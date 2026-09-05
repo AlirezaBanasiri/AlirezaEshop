@@ -3,11 +3,10 @@
 @{
 	ViewData["Title"] = "";
 }
-`<a href="#"></a>
+<a href="#"></a>
 
 <div class="text-center">
-	<h1 class="display-4">به فروشگاه ما خوش آمدید</h1>
-	<div class="row">
+	<div class="row" id="suggested">
 		@foreach (var product in Model)
 		{
 			<partial name="_BoxProduct" model="@product"></partial>

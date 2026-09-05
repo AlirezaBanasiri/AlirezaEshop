@@ -5,7 +5,7 @@
 		@* Img Size 182*150 *@
 		<img src="/images/@(Model.ID+Model.PictureExtention)" alt="Alternate Text" class="card-img-top img-thumbnail" height="150"/>
 		<div class="card-body">
-			<h5 class="card-title"></h5>
+			<h5 class="card-title">@Model.Name</h5>
 			<a asp-action="Details"
 			   asp-controller="Home"
 			   asp-route-id="@Model.ID">

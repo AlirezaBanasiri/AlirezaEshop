@@ -81,7 +81,7 @@ namespace AlirezaEShop.Pages.Admin
                     Product.Picture.CopyTo(stream);
                 }
             }
-            //Alireza Fixed Image Error While Editing And Adding Groups t
+
             foreach (int gr in SelectedGroups)
             {
                 if (SelectedGroups.Any() && SelectedGroups.Count > 0)
