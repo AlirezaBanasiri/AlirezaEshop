@@ -54,19 +54,19 @@ namespace AlirezaEShop.Data
             modelBuilder.Entity<Item>().HasData(new Item()
             {
                 Id = 1,
-                price = 850.4M,
+                price = 150000,
                 quantityInStock = 2,
             },
             new Item()
             {
                 Id = 2,
-                price = 3302.0M,
+                price = 40000,
                 quantityInStock = 5,
             },
             new Item()
             {
                 Id = 3,
-                price = 2500,
+                price = 25000,
                 quantityInStock = 3,
             });
 
