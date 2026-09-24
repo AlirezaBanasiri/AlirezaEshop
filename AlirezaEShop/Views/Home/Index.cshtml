@@ -1,16 +1,72 @@
-﻿@model IEnumerable<AlirezaEShop.Models.Product>
+@model IEnumerable<AlirezaEShop.Models.Product>
 
 @{
 	ViewData["Title"] = "";
 }
-<a href="#"></a>
 
-<div class="text-center">
-	<div class="row" id="suggested">
+<section class="home-slider" aria-label="پیشنهادهای فروشگاه" data-home-slider>
+	<div class="home-slider__track">
+		<article class="home-slide home-slide--one is-active" aria-hidden="false">
+			<div class="home-slide__content">
+				<span class="home-slide__eyebrow">به فروشگاه ما خوش آمدید</span>
+				<h1>انتخابی هوشمندانه<br />برای هر روز</h1>
+				<p>محصولات موردنیازتان را با خیال راحت پیدا کنید و از خریدی ساده لذت ببرید.</p>
+				<a class="home-slide__button" href="#suggested">دیدن محصولات <span aria-hidden="true">←</span></a>
+			</div>
+			<div class="home-slide__art home-slide__art--bag" aria-hidden="true"><span>SHOP</span></div>
+			<span class="home-slide__number" aria-hidden="true">۰۱</span>
+		</article>
+		<article class="home-slide home-slide--two" aria-hidden="true">
+			<div class="home-slide__content">
+				<span class="home-slide__eyebrow">تازه‌های فروشگاه</span>
+				<h2>چیزهای تازه<br />در انتظار شماست</h2>
+				<p>محصولات جدید را ببینید و چیزی را پیدا کنید که به کارتان می‌آید.</p>
+				<a class="home-slide__button" href="#suggested">گشت‌وگذار در محصولات <span aria-hidden="true">←</span></a>
+			</div>
+			<div class="home-slide__art home-slide__art--spark" aria-hidden="true"><span>NEW</span></div>
+			<span class="home-slide__number" aria-hidden="true">۰۲</span>
+		</article>
+		<article class="home-slide home-slide--three" aria-hidden="true">
+			<div class="home-slide__content">
+				<span class="home-slide__eyebrow">خرید آسان و مطمئن</span>
+				<h2>محصول مناسب<br />را راحت پیدا کنید</h2>
+				<p>دسته‌بندی‌ها را مرور کنید و سریع‌تر به انتخاب دلخواهتان برسید.</p>
+				<a class="home-slide__button" href="#suggested">مشاهده پیشنهادها <span aria-hidden="true">←</span></a>
+			</div>
+			<div class="home-slide__art home-slide__art--search" aria-hidden="true"><span>✓</span></div>
+			<span class="home-slide__number" aria-hidden="true">۰۳</span>
+		</article>
+		<article class="home-slide home-slide--four" aria-hidden="true">
+			<div class="home-slide__content">
+				<span class="home-slide__eyebrow">پیشنهادهای منتخب</span>
+				<h2>برای خرید بعدی<br />ایده بگیرید</h2>
+				<p>محصولات این صفحه را ببینید و انتخاب بعدی‌تان را همین‌جا پیدا کنید.</p>
+				<a class="home-slide__button" href="#suggested">رفتن به محصولات <span aria-hidden="true">←</span></a>
+			</div>
+			<div class="home-slide__art home-slide__art--gift" aria-hidden="true"><span>♥</span></div>
+			<span class="home-slide__number" aria-hidden="true">۰۴</span>
+		</article>
+	</div>
+	<button class="home-slider__arrow home-slider__arrow--prev" type="button" aria-label="اسلاید قبلی" data-slider-prev>›</button>
+	<button class="home-slider__arrow home-slider__arrow--next" type="button" aria-label="اسلاید بعدی" data-slider-next>‹</button>
+	<div class="home-slider__dots" role="group" aria-label="انتخاب اسلاید">
+		<button class="is-active" type="button" aria-label="اسلاید ۱" aria-current="true" data-slider-dot="0"></button>
+		<button type="button" aria-label="اسلاید ۲" data-slider-dot="1"></button>
+		<button type="button" aria-label="اسلاید ۳" data-slider-dot="2"></button>
+		<button type="button" aria-label="اسلاید ۴" data-slider-dot="3"></button>
+	</div>
+</section>
+
+<div class="text-center home-products">
+	<h2 class="home-products__title" id="suggested">محصولات فروشگاه</h2>
+	<div class="row">
 		@foreach (var product in Model)
 		{
 			<partial name="_BoxProduct" model="@product"></partial>
 		}
 	</div>
-
 </div>
+
+@section Scripts {
+	<script src="~/js/home-slider.js" asp-append-version="true"></script>
+}

@@ -331,9 +331,6 @@ template {
     margin-bottom: .5rem;
     font-weight: 500;
     line-height: 1.2 ;
-    overflow:hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .h1, h1 {
