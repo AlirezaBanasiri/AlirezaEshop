@@ -39,25 +39,6 @@ JavaScript
 git clone https://github.com/username/AlirezaEShop.git
 
 
-سپس وارد پوشه پروژه شوید:
-
-cd AlirezaEShop
-
-
-برای اجرای پروژه، فایل index.html را در مرورگر باز کنید.
-
-📁 ساختار پروژه
-AlirezaEShop/
-│
-├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   └── script.js
-├── images/
-│   └── ...
-└── README.md
-
 🎯 هدف پروژه
 
 هدف از ساخت AlirezaEShop ایجاد یک فروشگاه اینترنتی ساده و قابل توسعه است که بتوان امکانات بیشتری مانند سیستم ورود کاربران، پرداخت آنلاین، پنل مدیریت و اتصال به دیتابیس را در آینده به آن اضافه کرد.
