@@ -1,11 +1,4 @@
-@font-face {
-    font-family: 'IRANSansWeb';
-    font-style: normal;
-    font-weight: 700;
-    src: url('../fonts/IRANSansWeb(FaNum)_Bold.woff') format('woff'),
-         url('../fonts/IRANSansWeb(FaNum)_Bold.ttf') format('truetype'),
-         url('../fonts/IRANSansWeb(FaNum)_Bold.eot') format('embedded-opentype');
-}
+
 body {
     font-family: 'IRANSansWeb', sans-serif;
 }

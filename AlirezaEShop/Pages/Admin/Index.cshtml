@@ -27,10 +27,13 @@
 						<img src="/images/@(product.ID + product.PictureExtention)" class="img-fluid"
 							 style="max-width: 120px; max-height: 120px; border: 1px solid gray; padding: 3px; object-fit: cover;" />
 					</td>
-					<td>@product.ID</td>
-					<td>@product.item.price</td>
+					<td>@product.Name</td>
+					<td>@product.item.price.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("fa-IR")) ریال</td>
 					<td>
+						<i class="bi bi-pencil-square"></i>
 						<a asp-page="Edit" asp-route-id="@(product.ID)">ویرایش</a>
+						<br />
+						<i class="bi bi-trash"></i>
 						<a asp-page="Delete" asp-route-id="@(product.ID)">حذف</a>
 					</td>
 				</tr>

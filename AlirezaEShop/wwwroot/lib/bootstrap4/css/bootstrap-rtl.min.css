@@ -4,7 +4,12 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
+@font-face {
+    font-family: 'IRANSansWeb';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../../../fonts/IRANSansWeb(FaNum)_Bold.woff') format('woff'), url('../../../fonts/IRANSansWeb(FaNum)_Bold.ttf') format('truetype'), url('../../../fonts/IRANSansWeb(FaNum)_Bold.eot') format('embedded-opentype');
+}
 :root {
     --blue: #007bff;
     --indigo: #6610f2;
